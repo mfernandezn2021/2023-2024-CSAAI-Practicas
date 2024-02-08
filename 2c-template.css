@@ -38,9 +38,14 @@ clear: both;
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
 /* posicionamiento de imágenes https://www.w3schools.com/css/css_positioning.asp */
 
-img {
+.img {
     width: 100%;
     height: auto;
+}
+
+.imagenModificada {
+  width: 50px;
+  height: auto;
 }
 
 .iresponsive {
