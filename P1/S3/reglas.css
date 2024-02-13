@@ -1,0 +1,21 @@
+#unico {
+    color: red;
+  }
+  
+  .resaltado {
+    color: orange;
+  }
+  
+  .resaltado2 {
+    background-color: aqua;
+    color: gray;
+  }
+
+  p {
+    color: blue;
+  }
+
+.migrupo {
+    background-color: purple;
+    color: white
+  }
