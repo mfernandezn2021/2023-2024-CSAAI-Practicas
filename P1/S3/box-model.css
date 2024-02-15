@@ -1,15 +1,27 @@
+/* Esto se utiliza para que las cajas 
+se adecuen al tamaño dado y no se le añada tambien el padding y el borde
+*{
+  box-sizing: border-box;
+}
+*/
+
+
+
 /* Propiedades de la caja del cuerpo */
 body {
     padding: 5px;  /* relleno */
     margin: 10px;  /* Margen */
-    border: solid;
-    border-color: red;
+    border:double;
+    border-color: rgb(0, 0, 0);
+    width: auto;
 }
   
   /*  Propiedades de la caja del párrafo */
+  
 p {
-    margin: 10px;
-    padding: 10px; /* Relleno */
-    border:solid;
-    border-color: blue;
+    padding: 5px;
+    margin: 5px;
+    border:dashed;
+    border-color: rgb(0, 153, 255);
+    width: auto;
 }
