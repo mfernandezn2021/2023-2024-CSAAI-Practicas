@@ -1,0 +1,18 @@
+/* Esto se utiliza para que las cajas 
+se adecuen al tamaño dado y no se le añada tambien el padding y el borde
+*/
+
+body {
+    background-color: #BBFA99;
+}
+  
+h1 {
+    color: black;
+
+}
+
+p {
+    margin: 20px;
+    color: #00AEFA;
+    font-weight: bold;
+}
