@@ -39,6 +39,7 @@ clear: both;
   margin-top: 5px;
   margin-left: 20px;
   text-align: justify;
+  line-height: 1.2;
 }
 
 #logos {
@@ -77,21 +78,20 @@ clear: both;
 }
 
 #botonCaja {
+  display: inline-block;
   font-size: 80%;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
   width: 30%;
   padding: 1%; 
   margin-bottom: 5%;
   border: solid;
   border-width: 2px;
   border-color: rgb(97, 97, 97);
-    
-    display: inline-block;
-    background-color: hsl(150, 96%, 82%);
-    border-radius: 20px;
-    color: black;
-    text-align: center;
-    font-weight: bold;
-    text-decoration: none;
+  background-color: hsl(150, 96%, 82%);
+  border-radius: 20px;
 }
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
 /* posicionamiento de imágenes https://www.w3schools.com/css/css_positioning.asp */
