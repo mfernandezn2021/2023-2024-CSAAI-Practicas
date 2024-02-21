@@ -38,11 +38,13 @@ clear: both;
 #infoS1 {
   margin-top: 5px;
   margin-left: 20px;
+  margin-right: 10px;
   text-align: justify;
   line-height: 1.2;
 }
 
 #logos {
+  display: inline-block;
   width: 55%; 
   margin-left: 20%; 
   border-radius: 10px; 
@@ -50,6 +52,9 @@ clear: both;
   margin-bottom: 8px;
 }
 
+#colorEnlaces {
+  color: darkmagenta;
+}
 #c1 {
     background-color:#d1d1d1;
 }

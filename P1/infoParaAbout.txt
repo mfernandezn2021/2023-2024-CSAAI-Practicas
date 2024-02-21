@@ -11,6 +11,7 @@ OpenAI se fundó en 2015 por Ilya Sutskever, Greg Brockman, Trevor Blackwell, An
  y con Sam Altman y Elon Musk como miembros iniciales de la junta (Poner enlaces a biografias de cada uno)
 
 
+Se ha desarrollado junto con Microsoft, chat Bing, que parte de Chat GPT Plus
 Trayectoria Profesional
 
 
