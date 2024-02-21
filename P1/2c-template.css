@@ -28,6 +28,27 @@ display: table;
 clear: both;
 }
 
+#partesS1 {
+  font-weight: bold;
+  padding-left: 8px; 
+  padding-top: 10px;
+  margin-bottom: 5px;
+}
+
+#infoS1 {
+  margin-top: 5px;
+  margin-left: 20px;
+  text-align: justify;
+}
+
+#logos {
+  width: 55%; 
+  margin-left: 20%; 
+  border-radius: 10px; 
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+
 #c1 {
     background-color:#d1d1d1;
 }
@@ -39,11 +60,39 @@ clear: both;
 #boxes {
   padding: 5px;
   margin: 5px;
-  border:dashed;
-  border-color: rgb(0, 153, 255);
+  border: solid;
+  border-width: 2px;
+  border-color: rgb(97, 97, 97);
   width: auto;
 }
 
+.boton {
+  padding: 15px 25px;
+  display: inline-block;
+  background-color: #99f3ff;
+  border-radius: 15px;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+}
+
+#botonCaja {
+  font-size: 80%;
+  width: 30%;
+  padding: 1%; 
+  margin-bottom: 5%;
+  border: solid;
+  border-width: 2px;
+  border-color: rgb(97, 97, 97);
+    
+    display: inline-block;
+    background-color: hsl(150, 96%, 82%);
+    border-radius: 20px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
 /* posicionamiento de imágenes https://www.w3schools.com/css/css_positioning.asp */
 
@@ -53,9 +102,11 @@ img {
 }
 
 #imagen {
-  width: 500px;
-  margin-left: 9%;
+  width: 90%;
+  margin-left: 5%;
   margin-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
 }
 
 h2 {
