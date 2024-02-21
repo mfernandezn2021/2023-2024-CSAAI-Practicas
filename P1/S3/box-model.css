@@ -25,3 +25,13 @@ p {
     border-color: rgb(0, 153, 255);
     width: auto;
 }
+
+/* estilos.css */
+.contenedor {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bloque {
+  width: 45%;
+}
