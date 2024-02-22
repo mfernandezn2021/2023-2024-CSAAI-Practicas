@@ -9,8 +9,8 @@
 .columna {
 float: left;
 padding-left: 10px;
-min-height: 500px;
 padding-right: 10px;
+height: 886.033px;
 }
 
 .izquierda {
@@ -19,6 +19,7 @@ width: 30%;
 
 .derecha {
 width: 70%;
+
 }
 
 /* Clear floats despues de las columnas para eliminar la superposición */
@@ -31,7 +32,7 @@ clear: both;
 #partesS1 {
   font-weight: bold;
   padding-left: 8px; 
-  padding-top: 10px;
+  padding-top: 5px;
   margin-bottom: 5px;
 }
 
@@ -40,7 +41,7 @@ clear: both;
   margin-left: 20px;
   margin-right: 10px;
   text-align: justify;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 #logos {
@@ -50,6 +51,15 @@ clear: both;
   border-radius: 10px; 
   margin-top: 5px;
   margin-bottom: 8px;
+}
+
+#logosMI {
+  display: inline-block;
+  width: 70%; 
+  margin-left: 15%; 
+  border-radius: 10px; 
+  margin-top: 2%;
+  margin-bottom: 5%;
 }
 
 a {
