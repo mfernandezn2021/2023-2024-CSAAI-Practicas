@@ -85,6 +85,7 @@ a {
 
 #botonCaja {
   display: inline-block;
+  cursor: pointer;
   font-size: 80%;
   color: black;
   text-align: center;
