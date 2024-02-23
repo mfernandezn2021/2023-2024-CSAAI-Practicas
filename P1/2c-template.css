@@ -7,26 +7,34 @@
   
 /* Crear columnas de ancho diferente que se colocan una a continuación de la otra */
 .columna {
-float: left;
-padding-left: 10px;
-padding-right: 10px;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .izquierda {
-width: 30%;
+  width: 30%;
 }
 
 .derecha {
-width: 70%;
+  width: 70%;
 
 }
 
 /* Clear floats despues de las columnas para eliminar la superposición */
 .filla:after {
-content: "";
-display: table;
-clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
+
+#infoAbout {
+  background-color: rgb(197, 197, 197); 
+  padding-left: 10px; 
+  padding-top: 1px;
+  line-height: 1.4;
+}
+
 
 #partesS1 {
   font-weight: bold;
@@ -106,6 +114,25 @@ a {
   width: 30%;
   padding: 1%; 
   margin-bottom: 5%;
+  border: solid;
+  border-width: 2px;
+  border-color: rgb(97, 97, 97);
+  background-color: hsl(150, 96%, 82%);
+  border-radius: 20px;
+}
+
+#botonCaja1 {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 85%;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  width: 20%;
+  padding: 1%; 
+  margin-bottom: 5%;
+  margin-right: 5px;
   border: solid;
   border-width: 2px;
   border-color: rgb(97, 97, 97);
