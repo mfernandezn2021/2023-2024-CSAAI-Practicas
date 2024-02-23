@@ -10,7 +10,6 @@
 float: left;
 padding-left: 10px;
 padding-right: 10px;
-height: 886.033px;
 }
 
 .izquierda {
@@ -81,6 +80,9 @@ a {
   border-width: 2px;
   border-color: rgb(97, 97, 97);
   width: auto;
+  cursor: pointer;
+  font-size: 80%;
+  margin-bottom: 3%;
 }
 
 .boton {
