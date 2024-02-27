@@ -18,8 +18,17 @@
 
 .derecha {
   width: 70%;
-
 }
+
+ /*PROBAR
+#seccion1 {
+  background: linear-gradient(to right, #d1d1d1, #bbbbbb);
+}
+
+#seccion2 {
+  background: linear-gradient(to left, #bbbbbb, #d1d1d1);
+}
+*/
 
 /* Clear floats despues de las columnas para eliminar la superposición */
 .filla:after {
