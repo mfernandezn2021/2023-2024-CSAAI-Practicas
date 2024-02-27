@@ -62,11 +62,17 @@
 
 #logos {
   display: inline-block;
-  width: 55%; 
+  width: 50%; 
   margin-left: 20%; 
-  border-radius: 10px; 
+  border-radius: 20px; 
   margin-top: 5px;
   margin-bottom: 8px;
+}
+
+#logosMini {
+  width: 30%;
+  margin-left: 25%;
+  border-radius: 30px;
 }
 
 #logosMI {
