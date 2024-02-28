@@ -42,6 +42,7 @@
   padding-left: 10px; 
   padding-top: 1px;
   line-height: 1.4;
+  padding-bottom: 1px;
 }
 
 
@@ -65,8 +66,7 @@
   width: 50%; 
   margin-left: 25%; 
   border-radius: 20px; 
-  margin-top: 10px;
-  margin-bottom: 8px;
+  margin-top: 2%;
 }
 
 #logosMini {
@@ -131,6 +131,7 @@ a {
   padding: 1%; 
   margin-top: 2%;
   margin-bottom: 2%;
+  margin-left: 35%;
   border: solid;
   border-width: 2px;
   border-color: rgb(97, 97, 97);
@@ -148,8 +149,9 @@ a {
   text-decoration: none;
   width: 20%;
   padding: 1%; 
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   margin-right: 5px;
+  
   border: solid;
   border-width: 2px;
   border-color: rgb(97, 97, 97);
