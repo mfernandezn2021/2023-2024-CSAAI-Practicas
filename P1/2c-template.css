@@ -61,18 +61,19 @@
 }
 
 #logos {
-  display: inline-block;
+  display: block;
   width: 50%; 
-  margin-left: 20%; 
+  margin-left: 25%; 
   border-radius: 20px; 
-  margin-top: 5px;
+  margin-top: 10px;
   margin-bottom: 8px;
 }
 
 #logosMini {
-  width: 30%;
-  margin-left: 25%;
-  border-radius: 30px;
+  display: block;
+  width: 35%;
+  margin-left: 32.5%;
+  border-radius: 25px;
 }
 
 #logosMI {
@@ -128,7 +129,8 @@ a {
   text-decoration: none;
   width: 30%;
   padding: 1%; 
-  margin-bottom: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
   border: solid;
   border-width: 2px;
   border-color: rgb(97, 97, 97);
