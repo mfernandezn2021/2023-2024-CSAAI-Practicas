@@ -38,7 +38,7 @@
 }
 
 #infoAbout {
-  background-color: rgb(197, 197, 197); 
+  background-color: #c5c5c5; 
   padding-left: 10px; 
   padding-top: 1px;
   line-height: 1.4;
@@ -57,6 +57,7 @@
   margin-top: 5px;
   margin-left: 20px;
   margin-right: 10px;
+  padding-right: 10px;
   text-align: justify;
   line-height: 1.25;
 }
