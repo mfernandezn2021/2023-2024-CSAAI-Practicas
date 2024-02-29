@@ -7,87 +7,17 @@
 
 /* Crear columnas de ancho diferente que se colocan una a continuación de la otra */
 .columna {
-float: left;
-padding-left: 10px;
-padding-right: 10px;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .izquierda {
-width: 30%;
+  width: 30%;
 }
 
 .derecha {
-width: 70%;
-}
-
-/*PROBAR
-#seccion1 {
-background: linear-gradient(to right, #d1d1d1, #bbbbbb);
-}
-
-#seccion2 {
-background: linear-gradient(to left, #bbbbbb, #d1d1d1);
-}
-*/
-
-/* Clear floats despues de las columnas para eliminar la superposición */
-.filla:after {
-content: "";
-display: table;
-clear: both;
-}
-
-#infoAbout {
-background-color: #c5c5c5; 
-padding-left: 10px; 
-padding-top: 1px;
-line-height: 1.4;
-padding-bottom: 1px;
-}
-
-
-#partesS1 {
-font-weight: bold;
-padding-left: 8px; 
-padding-top: 5px;
-margin-bottom: 5px;
-}
-
-#infoS1 {
-margin-top: 5px;
-margin-left: 20px;
-margin-right: 10px;
-padding-right: 10px;
-text-align: justify;
-line-height: 1.25;
-}
-
-#logos {
-display: block;
-width: 50%; 
-margin-left: 25%; 
-border-radius: 20px; 
-margin-top: 2%;
-}
-
-#logosMini {
-display: block;
-width: 35%;
-margin-left: 32.5%;
-border-radius: 25px;
-}
-
-#logosMI {
-display: inline-block;
-width: 65%; 
-margin-left: 15%; 
-border-radius: 10px; 
-margin-top: 2%;
-margin-bottom: 5%;
-}
-
-a {
-color: darkmagenta;
+  width: 70%;
 }
 
 #c1 {
@@ -98,85 +28,98 @@ color: darkmagenta;
   background-color:#bbbbbb;
 }
 
-#boxes {
-padding: 5px;
-margin: 5px;
-border: solid;
-border-width: 2px;
-border-color: rgb(97, 97, 97);
-width: auto;
-cursor: pointer;
-font-size: 80%;
-margin-bottom: 3%;
+
+/* Clear floats despues de las columnas para eliminar la superposición */
+.filla:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.boton {
-padding: 15px 25px;
-display: inline-block;
-background-color: #99f3ff;
-border-radius: 15px;
-color: black;
-text-align: center;
-font-weight: bold;
+
+/* Reglas para textos */
+#infoAbout {
+  background-color: #c5c5c5; 
+  padding-left: 10px; 
+  padding-top: 1px;
+  line-height: 1.4;
+  padding-bottom: 1px;
+}
+
+#partesS1 {
+  font-weight: bold;
+  padding-left: 8px; 
+  padding-top: 5px;
+  margin-bottom: 5px;
+}
+
+#infoS1 {
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 10px;
+  padding-right: 10px;
+  text-align: justify;
+  line-height: 1.25;
+}
+
+h2 {
+  margin-left: 10px;
+}
+
+a {
+  color: darkmagenta;
+}
+
+
+/* Reglas para imagenes */
+#logos {
+  display: block;
+  width: 50%; 
+  margin-left: 25%; 
+  border-radius: 20px; 
+}
+
+#logosMini {
+  display: block;
+  width: 35%;
+  margin-left: 32.5%;
+  border-radius: 25px;
 }
 
 #botonCaja {
-display: inline-block;
-cursor: pointer;
-font-size: 80%;
-color: black;
-text-align: center;
-font-weight: bold;
-text-decoration: none;
-width: 30%;
-padding: 1%; 
-margin-top: 2%;
-margin-bottom: 2%;
-margin-left: 35%;
-border: solid;
-border-width: 2px;
-border-color: rgb(97, 97, 97);
-background-color: hsl(150, 96%, 82%);
-border-radius: 20px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 80%;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  width: 30%;
+  padding: 1%; 
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 35%;
+  border: solid;
+  border-width: 2px;
+  border-color: rgb(97, 97, 97);
+  background-color: hsl(150, 96%, 82%);
+  border-radius: 20px;
 }
 
-#botonCaja1 {
-display: inline-block;
-cursor: pointer;
-font-size: 85%;
-color: black;
-text-align: center;
-font-weight: bold;
-text-decoration: none;
-width: 20%;
-padding: 1%; 
-margin-bottom: 2%;
-margin-right: 5px;
-
-border: solid;
-border-width: 2px;
-border-color: rgb(97, 97, 97);
-background-color: hsl(150, 96%, 82%);
-border-radius: 20px;
-}
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
 /* posicionamiento de imágenes https://www.w3schools.com/css/css_positioning.asp */
 
 img {
-width: 80%;
-height: auto;
+  width: 80%;
+  height: auto;
 }
 
 #imagen {
-width: 90%;
-margin-left: 5%;
-margin-top: 5px;
-padding-bottom: 5px;
-border-radius: 10px;
-}
-
-h2 {
-margin-left: 10px;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
 }
 
 .iresponsive {
