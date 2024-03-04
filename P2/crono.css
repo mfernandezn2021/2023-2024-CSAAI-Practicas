@@ -1,0 +1,44 @@
+body {
+  background-color: black;
+  color: cyan;
+}
+
+/* Reglas por id */
+
+#displayContador {
+  position: relative;
+  border: double;
+  color: rgb(51, 255, 0);
+  margin: 5px;
+  padding: 10px;
+}
+
+#claveDesbloqueo {
+  font-size: 28px;
+  color: cyan;
+}
+
+#start, #stop, #reset {
+  padding: 10px;
+  margin: 5px;  
+}
+
+/* Reglas por class */
+
+.digito {
+  display: inline-block;
+  background-color: #5c5c5c;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+}
+
+.unaCaja {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  border: 2px solid;
+  color: rgb(108, 255, 218);
+}
