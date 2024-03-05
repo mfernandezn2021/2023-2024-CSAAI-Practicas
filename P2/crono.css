@@ -16,7 +16,7 @@ body {
   position: relative;
   border: double;
   color: rgb(51, 255, 0);
-  margin: 5px;
+  margin-left: 40%;
   padding: 10px;
   width: fit-content;
 }
@@ -29,6 +29,7 @@ body {
 #start, #stop, #reset {
   padding: 10px;
   margin: 5px;  
+  font-weight: bold;
 }
 
 /* Reglas por class */
@@ -36,6 +37,7 @@ body {
 .digito {
   display: inline-block;
   background-color: #5c5c5c;
+  font-weight: bold;
   color: white;
   padding: 10px;
   margin: 10px;
@@ -46,5 +48,4 @@ body {
   margin-bottom: 10px;
   border: 2px solid;
   color: rgb(108, 255, 218);
-  
 }
