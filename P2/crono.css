@@ -1,10 +1,3 @@
-
-
-/* ESTE VALE */
-
-
-
-
 body {
   background-color: black;
   color: cyan;
@@ -38,6 +31,7 @@ body {
   display: inline-block;
   background-color: #5c5c5c;
   font-weight: bold;
+  font-size: 16px;
   color: white;
   padding: 10px;
   margin: 10px;
@@ -47,5 +41,21 @@ body {
   text-align: center;
   margin-bottom: 10px;
   border: 2px solid;
-  color: rgb(108, 255, 218);
+  border-color: rgb(108, 255, 218);
+}
+
+.secretBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Crea cuatro columnas */
+  border: 1px solid red;
+  margin-bottom: 10px;
+}
+
+.secretData {
+  text-align: center; /* Centra el asterisco horizontalmente */
+  justify-content: center;
+  align-items: center; /* Centra el asterisco verticalmente */
+  display: flex; /* Usa flexbox para alinear el contenido de la celda */
+  border: 1px solid red;
+  padding: 5px;
 }
