@@ -6,17 +6,17 @@ body {
 /* Reglas por id */
 
 #displayContador {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 30%);
   border: double;
   color: rgb(51, 255, 0);
-  margin-left: 40%;
   padding: 10px;
   width: fit-content;
 }
 
 #claveDesbloqueo {
   font-size: 28px;
-  color: cyan;
 }
 
 #start, #stop, #reset {
@@ -31,9 +31,9 @@ body {
   display: inline-block;
   background-color: #5c5c5c;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 22px;
   color: white;
-  padding: 10px;
+  padding: 12px;
   margin: 10px;
 }
 
@@ -52,10 +52,10 @@ body {
 }
 
 .secretData {
-  text-align: center; /* Centra el asterisco horizontalmente */
+  display: flex;
+  text-align: center;
   justify-content: center;
-  align-items: center; /* Centra el asterisco verticalmente */
-  display: flex; /* Usa flexbox para alinear el contenido de la celda */
+  align-items: center;
   border: 1px solid red;
   padding: 5px;
 }

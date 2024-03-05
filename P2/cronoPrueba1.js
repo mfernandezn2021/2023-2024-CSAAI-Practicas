@@ -70,7 +70,6 @@ const press = {
   reset : document.getElementById("reset")
 }
 
-generarClaveSecreta()
 console.log("Iniciando ejecución JS...");
 
 const crono = new Crono(press.display)
@@ -90,8 +89,8 @@ press.reset.onclick = () => {
   crono.reset();
 }
 
-// MIRAR QUE HACER CON ESTO
-/*
+// MIRAR MODIFICACIONES Y FUNCION PRESIONAR DIGITO, FALTA VER FUNCIONAMIENTO E IMPLEMENTARLO
+
 let claveSecreta = [];
 let intentos = [];
 
@@ -100,30 +99,21 @@ function generarClaveSecreta() {
     for (let i = 0; i < 4; i++) {
         claveSecreta.push(Math.floor(Math.random() * 10));
     }
+    console.log("Clave secreta generada...")
 }
 
 function presionarDigito(digito) {
-    intentos.push(digito);
-    actualizarPantalla();
-    if (intentos.length === claveSecreta.length) {
-        verificarIntento();
+    console.log("Se ha pulsado =>", digito);
+    if (digito === claveSecreta[posicion]) {
+        console.log("Valor acertado...")
+        posicion++;
+        // Actualizar asterisco a valor pulsado
+    } else {
+        console.log("Valor NO acertado");
+        posicion++;
     }
 }
 
 function actualizarPantalla() {
     document.getElementById('claveSecreta').textContent = intentos.map(digito => '*').join('');
 }
-
-function verificarIntento() {
-    let aciertos = intentos.filter((digito, index) => digito === claveSecreta[index]).length;
-    if (aciertos === claveSecreta.length) {
-        alert('¡Has adivinado la clave secreta!');
-    } else {
-        alert(`Tienes ${aciertos} aciertos. Intenta de nuevo.`);
-        intentos = []; // Reiniciar intentos
-        actualizarPantalla();
-    }
-}
-
-window.onload = generarClaveSecreta;
-*/

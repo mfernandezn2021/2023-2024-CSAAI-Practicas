@@ -5,36 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Práctica 2. BOOM</title>
   <link rel="stylesheet" type="text/css" href="crono.css">
-  <script src="crono.js" defer></script>
+  <script src="cronoPrueba1.js" defer></script>
 </head>
 <body>
   <div id="displayContador">
-    <div class="secretBox">
-      <div class="secretData">*</div>
-      <div class="secretData">*</div>
-      <div class="secretData">*</div>
-      <div class="secretData">*</div>
+    <div id="claveDesbloqueo" class="secretBox">
+      <div id="claveSecreta" class="secretData">*</div>
+      <div id="claveSecreta" class="secretData">*</div>
+      <div id="claveSecreta" class="secretData">*</div>
+      <div id="claveSecreta" class="secretData">*</div>
     </div>
-    <div id="display" class="unaCaja" style="padding: 5px;">0:0:0</div>
+    <div id="display" class="unaCaja" style="padding: 5px; font-size: 38px;">0:0:0</div>
     <div class="unaCaja">
-      <button class="digito">7</button>
-      <button class="digito">8</button>
-      <button class="digito">9</button>
-    </div>
-    <div class="unaCaja">
-      <button class="digito">4</button>
-      <button class="digito">5</button>
-      <button class="digito">6</button>
+      <button class="digito" onclick="presionarDigito(7)">7</button>
+      <button class="digito" onclick="presionarDigito(8)">8</button>
+      <button class="digito" onclick="presionarDigito(9)">9</button>
     </div>
     <div class="unaCaja">
-      <button class="digito">1</button>
-      <button class="digito">2</button>
-      <button class="digito">3</button>  
+      <button class="digito" onclick="presionarDigito(4)">4</button>
+      <button class="digito" onclick="presionarDigito(5)">5</button>
+      <button class="digito" onclick="presionarDigito(6)">6</button>
     </div>
     <div class="unaCaja">
-      <button class="digito">0</button>
+      <button class="digito" onclick="presionarDigito(1)">1</button>
+      <button class="digito" onclick="presionarDigito(2)">2</button>
+      <button class="digito" onclick="presionarDigito(3)">3</button>  
     </div>
-    <button id="start">Start</button>
+    <div class="unaCaja">
+      <button class="digito" onclick="presionarDigito(0)">0</button>
+    </div>
+    <button id="start" onclick="generarClaveSecreta()">Start</button>
     <button id="stop">Stop</button>
     <button id="reset">Reset</button>    
   </div>
