@@ -104,12 +104,12 @@ function generarClaveSecreta() {
     for (let i = 0; i < 4; i++) {
         claveSecreta.push(Math.floor(Math.random() * 10));
     }
-    console.log("Clave secreta generada...")
+    console.log("Clave secreta generada...", claveSecreta)
 }
 
 
 function presionarDigito(digito) {
-    console.log("Se ha pulsado =>", digito);
+    console.log("Boton con valor pulsado =>", digito);
     listPulsado = [];
     if (digito === claveSecreta[posicion]) {
         listPulsado.push(document.getElementById('clave'));
@@ -123,3 +123,14 @@ function presionarDigito(digito) {
     }
 }
 
+function presionarDigito1(digito) {
+    console.log("Boton con valor pulsado =>", digito);
+    claveSecreta.forEach((valor, indice) => {
+        if(digito === valor) {
+            document.getElementById(`clave${indice + 1}`).textContent = digito;
+            console.log("Valor acertado")
+        } else {
+            console.log("Valor NO acertado");
+        }
+    })
+}
