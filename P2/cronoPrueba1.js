@@ -75,8 +75,11 @@ console.log("Iniciando ejecución JS...");
 const crono = new Crono(press.display)
 
 press.start.onclick = () => {
-  console.log("Start the game...");
+  console.log("Start was pressed...");
+  console.log("Generando clave secreta");
+  generarClaveSecreta();
   crono.start();
+  console.log("Starting crono...");
 }
 
 press.stop.onclick = () => {
@@ -90,9 +93,11 @@ press.reset.onclick = () => {
 }
 
 // MIRAR MODIFICACIONES Y FUNCION PRESIONAR DIGITO, FALTA VER FUNCIONAMIENTO E IMPLEMENTARLO
+console.log(press.display.innerHTML);
+
 
 let claveSecreta = [];
-let intentos = [];
+let listPulsado = [];
 
 function generarClaveSecreta() {
     claveSecreta = [];
@@ -102,9 +107,13 @@ function generarClaveSecreta() {
     console.log("Clave secreta generada...")
 }
 
+
 function presionarDigito(digito) {
     console.log("Se ha pulsado =>", digito);
+    listPulsado = [];
     if (digito === claveSecreta[posicion]) {
+        listPulsado.push(document.getElementById('clave'));
+        press.display.innerHTML(claveSecreta[posicion]);
         console.log("Valor acertado...")
         posicion++;
         // Actualizar asterisco a valor pulsado
@@ -114,6 +123,3 @@ function presionarDigito(digito) {
     }
 }
 
-function actualizarPantalla() {
-    document.getElementById('claveSecreta').textContent = intentos.map(digito => '*').join('');
-}
