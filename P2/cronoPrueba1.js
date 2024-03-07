@@ -92,7 +92,7 @@ press.reset.onclick = () => {
   crono.reset();
 }
 
-// MIRAR MODIFICACIONES Y FUNCION PRESIONAR DIGITO, FALTA VER FUNCIONAMIENTO E IMPLEMENTARLO
+
 console.log(press.display.innerHTML);
 
 
@@ -108,29 +108,20 @@ function generarClaveSecreta() {
 }
 
 
-function presionarDigito(digito) {
-    console.log("Boton con valor pulsado =>", digito);
-    listPulsado = [];
-    if (digito === claveSecreta[posicion]) {
-        listPulsado.push(document.getElementById('clave'));
-        press.display.innerHTML(claveSecreta[posicion]);
-        console.log("Valor acertado...")
-        posicion++;
-        // Actualizar asterisco a valor pulsado
-    } else {
-        console.log("Valor NO acertado");
-        posicion++;
-    }
-}
-
 function presionarDigito1(digito) {
     console.log("Boton con valor pulsado =>", digito);
     claveSecreta.forEach((valor, indice) => {
-        if(digito === valor) {
+        if(digito == valor) {
             document.getElementById(`clave${indice + 1}`).textContent = digito;
             console.log("Valor acertado")
         } else {
             console.log("Valor NO acertado");
+        
         }
     })
+    crono.stop();
+    console.log("Tiempo de juego: ", document.getElementById("display1").textContent);
 }
+
+// AÑADIR VARIABLE DE ESTADO: ON/OFF PARA SABER SI ESTA INICIADO EL CONTADOR, SI NO ESTA INICIADO Y SE PULSA UN BOTON YA SEA NUMERO O START QUE INICIE, SI ESTA INICIADO EL CONTADOR, ESTA FUNCION NO HARA NADA
+// MIRAR RESET E INTERFAZ A RESETEAR
