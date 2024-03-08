@@ -122,9 +122,10 @@ function presionarDigito1(digito) {
             document.getElementById(`clave${indice + 1}`).textContent = digito;
             console.log("Valor acertado");
             aciertos++;
-        } ifelse ((digito != valor) && (indice == 3)) 
+        } if ((digito != valor) && (indice == 3)) {
             console.log("Valor NO acertado");
-        })
+        }      
+    })
     if (aciertos == 4) {
         crono.stop();
         console.log("Tiempo de juego: ", document.getElementById("display").textContent);
