@@ -122,15 +122,16 @@ function presionarDigito1(digito) {
             document.getElementById(`clave${indice + 1}`).textContent = digito;
             console.log("Valor acertado");
             aciertos++;
-        } 
-        if ((digito != valor) && (indice == 3)) {
-            console.log("Valor NO acertado"); // RECORRE TODOS LOS PARAMETROS POR ESTO APARECE EN CONSOLA CUANDO EL VALOR NO SE ENCUENTRA EN ALGUNA DE LAS POSICIONES DE LA CLAVESECRETA
-        }
-    })
+        } ifelse ((digito != valor) && (indice == 3)) 
+            console.log("Valor NO acertado");
+        })
     if (aciertos == 4) {
         crono.stop();
         console.log("Tiempo de juego: ", document.getElementById("display").textContent);
     }
 }
-
+// QUITAR LINEAS 125 Y 126 Y TOMAR ESAS CONDICIONES CON UN ELSE, NO ES NECESARIO ESE IF
 // AÑADIR VARIABLE DE ESTADO: ON/OFF PARA SABER SI ESTA INICIADO EL CONTADOR, SI NO ESTA INICIADO Y SE PULSA UN BOTON YA SEA NUMERO O START QUE INICIE, SI ESTA INICIADO EL CONTADOR, ESTA FUNCION NO HARA NADA
+// extra // 
+// MIRAR EN EL ENLACE ULTIMO DE MARCADORES PARA AÑADIR DISPLAY CON TIEMPOS, SEPARAR POR .split PARA ASI COMPARAR LOS TIEMPOS QUE SE VAYAN HACIENDO
+// SI HAY TIEMPO PONER NUMERO DE FALLOS TAMBIEN
