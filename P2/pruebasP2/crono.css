@@ -1,0 +1,61 @@
+body {
+  background-color: black;
+  color: cyan;
+}
+
+/* Reglas por id */
+
+#displayContador {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 30%);
+  border: double;
+  color: rgb(51, 255, 0);
+  padding: 10px;
+  width: fit-content;
+}
+
+#claveDesbloqueo {
+  font-size: 28px;
+}
+
+#start, #stop, #reset {
+  padding: 10px;
+  margin: 5px;  
+  font-weight: bold;
+}
+
+/* Reglas por class */
+
+.digito {
+  display: inline-block;
+  background-color: #5c5c5c;
+  font-weight: bold;
+  font-size: 22px;
+  color: white;
+  padding: 12px;
+  margin: 10px;
+}
+
+.unaCaja {
+  text-align: center;
+  margin-bottom: 10px;
+  border: 2px solid;
+  border-color: rgb(108, 255, 218);
+}
+
+.secretBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Crea cuatro columnas */
+  border: 1px solid red;
+  margin-bottom: 10px;
+}
+
+.secretData {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  padding: 5px;
+}
