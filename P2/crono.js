@@ -72,11 +72,14 @@ const press = {
 
 console.log("Iniciando ejecución JS...");
 
-const crono = new Crono(press.display)
+const crono = new Crono(press.display);
 
 press.start.onclick = () => {
-  console.log("Start the game...");
+  console.log("Start was pressed...");
+  console.log("Generando clave secreta");
+  generarClaveSecreta();
   crono.start();
+  console.log("Starting crono...");
 }
 
 press.stop.onclick = () => {
@@ -84,7 +87,53 @@ press.stop.onclick = () => {
   crono.stop();
 }
 
+let counter = 0;
+
 press.reset.onclick = () => {
-  console.log("Resetting crono...")
+  console.log("Resetting crono...");
   crono.reset();
+  for (let i = 0; i < 4; i++) {
+    document.getElementById(`clave${counter + 1}`).textContent = '*';
+    counter++;
+  }
 }
+
+
+console.log(press.display.innerHTML);
+
+
+let claveSecreta = [];
+let listPulsado = [];
+let aciertos = 0;
+
+function generarClaveSecreta() {
+    claveSecreta = [];
+    for (let i = 0; i < 4; i++) {
+        claveSecreta.push(Math.floor(Math.random() * 10));
+    }
+    console.log("Clave secreta generada...", claveSecreta);
+}
+
+
+function presionarDigito1(digito) {
+    cont = 0;
+    console.log("Boton con valor pulsado =>", digito);
+    claveSecreta.forEach((valor, indice) => {
+        if(digito == valor) {
+            document.getElementById(`clave${indice + 1}`).textContent = digito;
+            console.log("Valor acertado");
+            cont++;
+            aciertos++;
+        } 
+    })
+    if (cont == 0) {
+        console.log("Valor NO acertado"); // RECORRE TODOS LOS PARAMETROS POR ESTO APARECE EN CONSOLA CUANDO EL VALOR NO SE ENCUENTRA EN ALGUNA DE LAS POSICIONES DE LA CLAVESECRETA
+    }
+    if (aciertos == 4) {
+        crono.stop();
+        console.log("Tiempo de juego: ", document.getElementById("display").textContent);
+    }
+}
+
+// AÑADIR VARIABLE DE ESTADO: ON/OFF PARA SABER SI ESTA INICIADO EL CONTADOR, SI NO ESTA INICIADO Y SE PULSA UN BOTON YA SEA NUMERO O START QUE INICIE, SI ESTA INICIADO EL CONTADOR, ESTA FUNCION NO HARA NADA
+// Cambiar linea 126 y 127, cambiar por un else
