@@ -5,7 +5,8 @@ body {
 
 /* Reglas por id */
 
-#displayContador {
+#displayCounter {
+  display: block; /* Añadido */
   position: absolute;
   left: 50%;
   transform: translate(-50%, 30%);
@@ -58,4 +59,10 @@ body {
   align-items: center;
   border: 1px solid red;
   padding: 5px;
+}
+
+@media only screen and (max-width: 600px) {  /* 768 px? o 600? cual utilizar? */
+  .displayCounterS {
+    width: 100%;
+  }
 }
