@@ -92,6 +92,7 @@ let counter = 0;
 press.reset.onclick = () => {
   console.log("Resetting crono...");
   crono.reset();
+  counter = 0;
   for (let i = 0; i < 4; i++) {
     document.getElementById(`clave${counter + 1}`).textContent = '*';
     counter++;
@@ -103,11 +104,11 @@ console.log(press.display.innerHTML);
 
 
 let claveSecreta = [];
-let listPulsado = [];
 let aciertos = 0;
 
 function generarClaveSecreta() {
     claveSecreta = [];
+    aciertos = 0;
     for (let i = 0; i < 4; i++) {
         claveSecreta.push(Math.floor(Math.random() * 10));
     }

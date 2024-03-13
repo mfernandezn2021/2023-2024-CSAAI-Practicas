@@ -78,6 +78,7 @@ class Crono {
     console.log("Start was pressed...");
     console.log("Generando clave secreta");
     generarClaveSecreta();
+    resetDisplay();
     crono.start();
     console.log("Starting crono...");
   }
@@ -88,14 +89,20 @@ class Crono {
   }
   
   let counter = 0;
-  
-  press.reset.onclick = () => {
-    console.log("Resetting crono...");
-    crono.reset();
+
+  function resetDisplay() {
+    counter = 0;
     for (let i = 0; i < 4; i++) {
       document.getElementById(`clave${counter + 1}`).textContent = '*';
       counter++;
     }
+  }
+
+
+  press.reset.onclick = () => {
+    console.log("Resetting crono...");
+    crono.reset();
+    resetDisplay();
   }
   
   
@@ -103,11 +110,11 @@ class Crono {
   
   
   let claveSecreta = [];
-  let listPulsado = [];
   let aciertos = 0;
   
   function generarClaveSecreta() {
       claveSecreta = [];
+      aciertos = 0;
       for (let i = 0; i < 4; i++) {
           claveSecreta.push(Math.floor(Math.random() * 10));
       }
@@ -135,8 +142,5 @@ class Crono {
       }
   }
   
-  
-// AÑADIR VARIABLE DE ESTADO: ON/OFF PARA SABER SI ESTA INICIADO EL CONTADOR, SI NO ESTA INICIADO Y SE PULSA UN BOTON YA SEA NUMERO O START QUE INICIE, SI ESTA INICIADO EL CONTADOR, ESTA FUNCION NO HARA NADA
-// extra // 
-// MIRAR EN EL ENLACE ULTIMO DE MARCADORES PARA AÑADIR DISPLAY CON TIEMPOS, SEPARAR POR .split PARA ASI COMPARAR LOS TIEMPOS QUE SE VAYAN HACIENDO
-// SI HAY TIEMPO PONER NUMERO DE FALLOS TAMBIEN
+  // AÑADIR VARIABLE DE ESTADO: ON/OFF PARA SABER SI ESTA INICIADO EL CONTADOR, SI NO ESTA INICIADO Y SE PULSA UN BOTON YA SEA NUMERO O START QUE INICIE, SI ESTA INICIADO EL CONTADOR, ESTA FUNCION NO HARA NADA
+  // Cambiar linea 126 y 127, cambiar por un else
