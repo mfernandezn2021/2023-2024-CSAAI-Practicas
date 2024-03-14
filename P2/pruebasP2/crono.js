@@ -128,11 +128,12 @@ class Crono {
           if(digito == valor) {
               document.getElementById(`clave${indice + 1}`).textContent = digito;
               console.log("Valor acertado");
-              claveSecreta.splice(indice, 1); // Elimino elementos del array para que si se repite la pulsacion sobre un numero no pare el crono
+              delete claveSecreta[indice]; // Elimino elementos del array para que si se repite la pulsacion sobre un numero no pare el crono
               cont++;
               aciertos++;
           } 
       })
+      console.log(claveSecreta)
       if (cont == 0) {
           console.log("Valor NO acertado");
       }

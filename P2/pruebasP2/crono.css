@@ -4,6 +4,11 @@ body {
 }
 
 /* Reglas por id */
+/*
+#displayContainer {
+  width: 50%;
+}
+*/
 
 #displayCounter {
   display: block; /* Añadido */
@@ -36,6 +41,7 @@ body {
   color: white;
   padding: 12px;
   margin: 10px;
+  cursor: pointer;
 }
 
 .unaCaja {
