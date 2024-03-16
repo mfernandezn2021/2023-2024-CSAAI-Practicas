@@ -1,14 +1,15 @@
 body {
   background-color: black;
+  color: white;
 }
 
 /* Reglas por id */
 
 #displayCounter {
-  display: block; /* Añadido */
+  display: block;
   position: absolute;
   left: 50%;
-  transform: translate(-50%, 30%);
+  transform: translate(-50%, 10%);
   border: double;
   color: rgb(51, 255, 0);
   padding: 10px;
@@ -72,9 +73,10 @@ body {
   #displayCounter {
     width: 85%; /* Hace que #displayCounter ocupe el ancho completo de la pantalla */
     left: 0;
-    transform: translate(0, 30%); /* Ajusta la transformación para el nuevo ancho */
+    transform: translate(0, 0%); /* Ajusta la transformación para el nuevo ancho */
     margin-left: 5%;
     margin-right: 5%;
+    margin-top: 5%;
   }
 
   #claveDesbloqueo {
@@ -86,6 +88,7 @@ body {
     width: 28%;
     padding: 8px;
     font-size: 110%; /* Reduce el tamaño de la fuente y el padding */
+    margin-bottom: 10px;
   }
   
   .unaCaja {
@@ -99,8 +102,5 @@ body {
     font-size: 190%; /* Reduce el tamaño de la fuente para los dígitos */
     padding: 3%; /* Reduce el padding */
     margin: 6%;
-  }
-  .displayCounterS { /* SOLO ESTO ESTABA ANTES */
-    width: 100%;
   }
 }
