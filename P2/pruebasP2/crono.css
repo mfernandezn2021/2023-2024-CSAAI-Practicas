@@ -1,14 +1,8 @@
 body {
   background-color: black;
-  color: cyan;
 }
 
 /* Reglas por id */
-/*
-#displayContainer {
-  width: 50%;
-}
-*/
 
 #displayCounter {
   display: block; /* Añadido */
@@ -22,13 +16,16 @@ body {
 }
 
 #claveDesbloqueo {
-  font-size: 28px;
+  font-size: 200%;
+  color: red;
 }
 
 #start, #stop, #reset {
   padding: 10px;
   margin: 5px;  
   font-weight: bold;
+  font-size: 16px;
+  text-align: center;
 }
 
 /* Reglas por class */
@@ -37,7 +34,7 @@ body {
   display: inline-block;
   background-color: #5c5c5c;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 28px;
   color: white;
   padding: 12px;
   margin: 10px;
@@ -68,7 +65,42 @@ body {
 }
 
 @media only screen and (max-width: 600px) {  /* 768 px? o 600? cual utilizar? */
-  .displayCounterS {
+  body {
+    font-size: 14px; /* Reduce el tamaño de la fuente para dispositivos pequeños */
+  }
+
+  #displayCounter {
+    width: 85%; /* Hace que #displayCounter ocupe el ancho completo de la pantalla */
+    left: 0;
+    transform: translate(0, 30%); /* Ajusta la transformación para el nuevo ancho */
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  #claveDesbloqueo {
+    font-size: 220%; /* Reduce el tamaño de la fuente para dispositivos pequeños */
+  }
+
+  #start, #stop, #reset {
+    display: inline;
+    width: 28%;
+    padding: 8px;
+    font-size: 110%; /* Reduce el tamaño de la fuente y el padding */
+  }
+  
+  .unaCaja {
+    text-align: center;
+    margin-bottom: 10px;
+    border: 2px solid;
+    border-color: rgb(108, 255, 218);  
+  }
+
+  .digito {
+    font-size: 190%; /* Reduce el tamaño de la fuente para los dígitos */
+    padding: 3%; /* Reduce el padding */
+    margin: 6%;
+  }
+  .displayCounterS { /* SOLO ESTO ESTABA ANTES */
     width: 100%;
   }
 }

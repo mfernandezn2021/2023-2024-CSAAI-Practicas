@@ -9,7 +9,7 @@
 </head>
 <!--PROBAR DEFINITIVO-->
 <body>
-  <!--<div id="displayContainer">-->
+  <div id="bloqueTotal">
     <div id="displayCounter" class="displayCounterS">
       <div id="claveDesbloqueo" class="secretBox">
         <div id="clave1" class="secretData">*</div>
@@ -17,7 +17,7 @@
         <div id="clave3" class="secretData">*</div>
         <div id="clave4" class="secretData">*</div>
       </div>
-      <div id="display" class="unaCaja" style="padding: 5px; font-size: 38px;">0:0:0</div>
+      <div id="display" class="unaCaja" style="padding: 5px; font-size: 400%;">0:0:0</div>
       <div class="unaCaja">
         <button class="digito" onclick="presionarDigito1(7)">7</button>
         <button class="digito" onclick="presionarDigito1(8)">8</button>
@@ -36,10 +36,12 @@
       <div class="unaCaja">
         <button class="digito" onclick="presionarDigito1(0)">0</button>
       </div>
-      <button id="start">Start</button>
-      <button id="stop">Stop</button>
-      <button id="reset">Reset</button>    
+      <div class="unaCaja" style="border-color: black;">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+      </div>
     </div>
-  <!--</div>-->
+  </div>
 </body>
 </html>

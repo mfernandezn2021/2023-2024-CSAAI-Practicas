@@ -74,16 +74,32 @@ class Crono {
   
   const crono = new Crono(press.display);
   
+  document.addEventListener('keydown', function(event) {
+    // Verificar si la tecla presionada es numérica (0-9)
+    if (event.key >= '0' && event.key <= '9') {
+        console.log("Se ha pulsado la tecla: ", event.key);
+        pressedButton = parseInt(event.key);
+        presionarDigito1(pressedButton);
+      }
+  });
+
+
+
   press.start.onclick = () => {
-    console.log("Start was pressed...");
-    console.log("Generando clave secreta");
-    resetDisplay();
-    generarClaveSecreta();
-    crono.reset();
-    crono.start();
-    console.log("Starting crono...");
+    startGame();
+    estadoInicio = true;
   }
   
+function startGame() {
+  console.log("Start was pressed...");
+  console.log("Generando clave secreta");
+  resetDisplay();
+  generarClaveSecreta();
+  crono.reset();
+  crono.start();
+  console.log("Starting crono...");
+}
+
   press.stop.onclick = () => {
     console.log("Stopping crono...");
     crono.stop();
@@ -95,6 +111,7 @@ class Crono {
     counter = 0;
     for (let i = 0; i < 4; i++) {
       document.getElementById(`clave${counter + 1}`).textContent = '*';
+      document.getElementById(`clave${counter + 1}`).style.color = "red";
       counter++;
     }
   }
@@ -111,6 +128,7 @@ class Crono {
   
   let claveSecreta = [];
   let aciertos = 0;
+  let estadoInicio = false;
   
   function generarClaveSecreta() {
       claveSecreta = [];
@@ -122,11 +140,16 @@ class Crono {
   }
   
   function presionarDigito1(digito) {
+    if (estadoInicio === false) {
+      startGame();
+      estadoInicio = true;
+    }
       cont = 0;
       console.log("Boton con valor pulsado =>", digito);
       claveSecreta.forEach((valor, indice) => {
           if(digito == valor) {
               document.getElementById(`clave${indice + 1}`).textContent = digito;
+              document.getElementById(`clave${indice + 1}`).style.color = "rgb(51, 255, 0)";
               console.log("Valor acertado");
               delete claveSecreta[indice]; // Elimino elementos del array para que si se repite la pulsacion sobre un numero no pare el crono
               cont++;
@@ -139,6 +162,7 @@ class Crono {
       }
       if (aciertos == 4) {
           crono.stop();
+          estadoInicio = false;
           console.log("Tiempo de juego: ", document.getElementById("display").textContent);
       }
   }
