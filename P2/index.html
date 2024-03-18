@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Práctica 2. BOOM</title>
   <link rel="stylesheet" type="text/css" href="crono.css">
-  <script src="crono.js" defer></script>  
-  <!-- Modificaciones realizadas en PruebasP2-->
+  <script src="crono.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+<!--PROBAR DEFINITIVO
+PREGUNTAR POR QUÉ EN WEB NO FUNCIONAN LAS ALERTAS PUESTAS Y ERROR AL VALIDAR JS-->
 <body>
-  <div id="displayContador">
+  <div id="displayCounter" class="displayCounterS">
     <div id="claveDesbloqueo" class="secretBox">
       <div id="clave1" class="secretData">*</div>
       <div id="clave2" class="secretData">*</div>
       <div id="clave3" class="secretData">*</div>
       <div id="clave4" class="secretData">*</div>
     </div>
-    <div id="display" class="unaCaja" style="padding: 5px; font-size: 38px;">0:0:0</div>
+    <div id="display" class="unaCaja" style="padding: 5px; font-size: 400%;">0:0:0</div>
     <div class="unaCaja">
       <button class="digito" onclick="presionarDigito1(7)">7</button>
       <button class="digito" onclick="presionarDigito1(8)">8</button>
@@ -35,10 +37,11 @@
     <div class="unaCaja">
       <button class="digito" onclick="presionarDigito1(0)">0</button>
     </div>
-    <button id="start">Start</button>
-    <button id="stop">Stop</button>
-    <button id="reset">Reset</button>    
+    <div class="unaCaja" style="border-color: black; margin-bottom: 0px;">
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+      <button id="reset">Reset</button>
+    </div>
   </div>
-  
 </body>
 </html>
