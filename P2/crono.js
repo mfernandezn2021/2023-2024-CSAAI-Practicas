@@ -69,7 +69,7 @@ class Crono {
     }
     
     console.log("Starting JS execution...");
-    window.alert("Bienvenido a la práctica 2 (BOOM) Esta consta de 10 botones, un cronómetro y una clave secreta a adivinar. Esta es aleatoria y esta compuesta por 4 dígitos, cuando adivines la clave secreta parará el cronómetro")
+    window.alert("Bienvenido a la práctica 2 (BOOM) Esta consta de 10 botones, un cronómetro y una clave secreta a adivinar. Esta es aleatoria y esta compuesta por 4 dígitos, cuando adivines la clave secreta parará el cronómetro, si el cronometro está parado y pulsas cualquier tecla numerica o haces click en cualquier boton se inicia el cronometro y empieza el juego")
     
     const crono = new Crono(press.display);
   
