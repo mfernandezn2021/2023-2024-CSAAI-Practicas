@@ -75,6 +75,7 @@ class Crono {
   
     let counter = 0;
     let estadoInicio = false;
+    let estadoParado = false;
   
     function resetDisplay() { // Reseteo del display de clave secreta
       counter = 0;
@@ -86,16 +87,22 @@ class Crono {
     }
   
     function startGame() {
-      console.log("Start was pressed...");
-      console.log("Generating secret key");
-      resetDisplay();
-      generarClaveSecreta();
-      crono.reset();
-      crono.start();
-      console.log("Starting crono...");
+      if (estadoParado === true) {
+        crono.start();
+        console.log("Crono running again...");
+        estadoParado = false;
+      } else {
+        console.log("Start was pressed...");
+        console.log("Generating secret key");
+        resetDisplay();
+        generarClaveSecreta();
+        crono.reset();
+        crono.start();
+        console.log("Starting crono...");
+      }
     }
   
-    document.addEventListener('keydown', function(event) {  // Verificar si la tecla presionada es numérica (0-9)
+    document.addEventListener('keydown', function(event) {  // Verifica si la tecla presionada es numérica (0-9)
       if (event.key >= '0' && event.key <= '9') {
         console.log("The key has been pressed: ", event.key);
         pressedButton = parseInt(event.key);
@@ -111,7 +118,7 @@ class Crono {
     press.stop.onclick = () => {
       console.log("Stopping crono...");
       crono.stop();
-      estadoInicio = false;
+      estadoParado = true;
     }
     
     press.reset.onclick = () => {
@@ -139,6 +146,11 @@ class Crono {
       if (estadoInicio === false) {
         startGame();
         estadoInicio = true;
+      }
+      if (estadoParado === true) {
+        crono.start();
+        console.log("Crono running again...");
+        estadoParado = false;
       }
       cont = 0;
       console.log("Button with pressed value => ", digito);
