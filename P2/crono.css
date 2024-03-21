@@ -27,6 +27,7 @@ body {
   font-weight: bold;
   font-size: 16px;
   text-align: center;
+  cursor: pointer;
 }
 
 #vueltaIndice {
@@ -38,6 +39,7 @@ body {
   text-align: center;
   background-color: #686868;
   color: white;
+  cursor: pointer;
 }
 
 /* Reglas por class */
