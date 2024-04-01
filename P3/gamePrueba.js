@@ -1,37 +1,40 @@
-const canvas = document.getElementById("canvasGame");
-const ctx = canvas.getContext("2d");
-let raf;
+let canvas = document.getElementById('canvasGame');
+let ctx = canvas.getContext('2d');
 
-const ball = {
-  x: 100,
-  y: 100,
-  vx: 5,
-  vy: 2,
+let ball = {
+  x: 0,
+  y: canvas.height,
   radius: 10,
-  color: "blue",
-  draw() {
+  vx: 0,
+  vy: 0,
+  draw: function() {
+    ctx.fillStyle = 'blue';
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.fillStyle = this.color;
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fill();
-  },
+  }
 };
 
+let target = {
+  x: getRandomPosition(),
+  y: 0
+};
+
+let velocity = 50;
 let angle = 45;
-let speed = 50;
-let projectile = { x: 0, y: canvas.height};
 let fired = false;
 let timer = 0;
 let interval;
+let projectile = { x: 0, y: canvas.height};
+
 
 // Update of angle and speed from sliders data
 document.getElementById('sliderAngle').addEventListener('input', function() {
   angle = this.value;
 });
 
-document.getElementById( 'sliderSpeed' ).addEventListener('input', function() {
-  speed = this.value;
+document.getElementById('sliderSpeed').addEventListener('input', function() {
+  velocity = this.value;
 });
 
 // Fire button of parabolic shot
@@ -59,8 +62,13 @@ function resetGame() {
   clearInterval(interval);
   fired = false;
   timer = 0;
-  projectile = {x:0, y: canvas.height};
-  target = {x: getRandomPosition(), y: 0};
+  ball.x = 0;
+  ball.y = canvas.height;
+  ball.vx = 0;
+  ball.vy = 0;
+  target.x = getRandomPosition();
+  target.y = 0;
+  document.getElementById('displayResult').textContent = '';
   draw();
 }
 
@@ -96,17 +104,7 @@ function draw() {
   ctx.fillStyle = 'green';
   ctx.fillRect(projectile.x, projectile.y - 10, 10, 10);
   requestAnimationFrame(draw);
-  raf = window.requestAnimationFrame(draw);
 }
-
-/* canvas.addEventListener("mouseover", (e) => {
-  raf = window.requestAnimationFrame(draw);
-});
-
-canvas.addEventListener("mouseout", (e) => {
-  window.cancelAnimationFrame(raf);
-});
-*/
 
 function fireProjectile() {
   // Convert angle to radians
