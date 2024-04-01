@@ -1,6 +1,11 @@
 body {
   text-align: center;
   margin-top: 20px;
+  padding: 0;
+}
+
+button {
+  margin: 0 5px;
 }
 
 #canvasGame {
@@ -10,3 +15,12 @@ body {
   border: 2px solid black;
   border-radius: 5px;
 }
+
+#config {
+  margin: 10px;
+}
+
+#info {
+  margin: 10px;
+}
+

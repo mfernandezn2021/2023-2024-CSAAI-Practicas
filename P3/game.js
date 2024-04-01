@@ -18,6 +18,45 @@ const ball = {
   },
 };
 
+let angle = 45;
+let speed = 50;
+let projectile = { x: 0, y: canvas.height};
+let fired = false;
+let timer = 0;
+let interval;
+
+// Update of angle and speed from sliders data
+document.getElementById('sliderAngle').addEventListener('input', function() {
+  angle = this.value;
+});
+
+document.getElementById( 'sliderSpeed' ).addEventListener('input', function() {
+  speed = this.value;
+});
+
+// Fire button of parabolic shot
+document.getElementById('buttonFire').addEventListener('click', function() {
+  if (!fired) {
+    fired = true;
+    interval = setInterval(updateTimer, 100); // Start counting time for the shot  
+  }
+});
+
+// Reset button of game
+document.getElementById('buttonReset').addEventListener('click', resetGame);
+
+function updateTimer() {
+  timer += 0.1;
+  document.getElementById('displayTimer').textContent = `Time: ${timer.toFixed(1)}s`;
+}
+
+function getRandomPosition() {
+  return Math.random() * (canvas.width - 50) + 50;
+}
+// HASTA AQUI seguir con el codigo
+
+
+
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ball.draw();
