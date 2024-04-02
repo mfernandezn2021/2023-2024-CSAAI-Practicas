@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game: Parabolic Shot</title>
   <link rel="stylesheet" href="canvas.css">
-  <script src="gamePrueba.js" defer></script>
+  <script src="gamePruebas1.js" defer></script>
 </head>
 <body>
   <div>
     <h2>Parabolic Shot game</h2>
     <canvas id="canvasGame"></canvas>
     <div id="config">
-      <label for="sliderAngle">Shot angle: </label>
+      <label for="sliderAngle" id="valueA">Shot angle: </label>
       <input type="range" id="sliderAngle" min="0" max="90" value="45">
-      <label for="sliderSpeed">Speed: </label>
+      <label for="sliderSpeed" id="valueS">Speed: </label>
       <input type="range" id="sliderSpeed" min="10" max="100" value="50">
       <button id="buttonFire">Fire!</button>
       <button id="buttonReset">Reset</button>
     </div>
     <div id="info">
-      <div id="displayTimer">Time: 0s</div>
+      <div id="displayTimer">Time playing: 0s</div>
       <div id="displayResult">Result: None</div>
     </div>
   </div>
