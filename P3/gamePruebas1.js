@@ -18,6 +18,7 @@ const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth * 0.5;
 canvas.height = window.innerHeight * 0.5;
+
 let target =  {x: getRandomPosition(), y: 0 };
 // Position of object
 let x = 10;
@@ -164,10 +165,10 @@ function update() {
       text: `Your gaming time is: ${document.getElementById("displayTimer").textContent}, number of times Fire! pressed: ${counter}`,
       icon: 'success',
     });
+    resetDisplay();
+    cancelAnimationFrame(update); // Mirar como parar la funcion
   }
 }
-if (hitTarget == false) {
-  update(); // Animation
-} else {
 
-}
+update(); // Animation
+
