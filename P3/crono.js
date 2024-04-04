@@ -31,7 +31,7 @@ class Crono {
       }
 
       //-- Mostrar el valor actual
-      this.display.innerHTML = this.min + ":" + this.seg + ":" + this.cent
+    this.display.innerHTML = "Time playing => " + this.min + ":" + this.seg + ":" + this.cent + " s";
   }
 
   //-- Arrancar el cronómetro
@@ -59,6 +59,7 @@ class Crono {
       this.seg = 0;
       this.min = 0;
 
-      this.display.innerHTML = "0:0:0";
+      this.display.innerHTML = "Time playing => 0:0:0 s";
   }
 }
+
