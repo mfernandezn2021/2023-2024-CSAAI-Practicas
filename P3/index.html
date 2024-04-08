@@ -6,7 +6,7 @@
   <title>Game: Parabolic Shot</title>
   <link rel="stylesheet" href="canvas.css">
   <script src="crono.js" defer></script>
-  <script src="gamePruebas1.js" defer></script>
+  <script src="gamePrueba.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
@@ -19,6 +19,7 @@
       <label for="sliderSpeed" id="valueS">Speed: </label>
       <input type="range" id="sliderSpeed" min="1" max="20" value="5">
       <button id="buttonFire">Fire!</button>
+      <button id="buttonStop" onclick="stopCrono()">Stop</button>
       <button id="buttonReset" onclick="resetDisplay()">Reset</button>
     </div>
     <div id="info">

@@ -32,11 +32,12 @@ let gravity = 0.15;
 
 let angle = valueAngle.value * (Math.PI/180);
 let speed = valueSpeed.value;
+let cronoStopped = false;
 
 let fired = false;
 let counter = 0;
 let circle = 360;
-let xCircle = getRandomPosition();
+let xCircle = canvas.width - 25 - getRandomPosition();
 let yCircle = canvas.height - 25;
 
 let hitTarget = false;
@@ -53,18 +54,22 @@ valueSpeed.addEventListener('input', () => {
   document.getElementById('valueS').textContent = `Speed: ${speed}`;
 });
 
+
+
+
 // Fire button
 document.getElementById('buttonFire').addEventListener('click', () => {
   if (buttonFire) {
+    if (cronoStopped == true) {
+      crono.start();
+      cronoStopped = false;
+    }
     speedX = speed * Math.cos(angle);
     speedY = -speed * Math.sin(angle);
+    reboundCanvas();
     if (Math.abs(projectile.x - target.x) < 10 && projectile.y <= 10) {
       clearInterval(interval);
       document.getElementById('resultDisplay').textContent = 'Result: Hit!';
-      fired = false;
-    } else if (projectile.x > canvas.width || projectile.y > canvas.height) {
-      clearInterval(interval);
-      document.getElementById('resultDisplay').textContent = 'Result: Miss!';
       fired = false;
     }
     console.log('Projectile fired');
@@ -75,6 +80,24 @@ document.getElementById('buttonFire').addEventListener('click', () => {
     fired = true;
   }
 });
+
+
+function reboundCanvas() {
+  if (x <= 0 || x >= (canvas.width - 50) ) {
+    speedX = -speedX;
+  }
+  if (y <= 0 || y >= canvas.height -50) {
+    speedY = -speedY;
+  }
+}
+
+function stopCrono() {
+  if (cronoStopped == false) {
+    crono.stop();
+    cronoStopped = true;
+    console.log('Stopping timer...');
+  }
+}
 
 function resetDisplay() {
   console.log('Button clicked, resetting game...');
@@ -88,6 +111,7 @@ function resetDisplay() {
   angle = valueAngle.value * (Math.PI/180);
   speed = valueSpeed.value;
   fired = false;
+  cronoStopped = false;
   counter = 0;
   circle = 360;
   xCircle = getRandomPosition();
@@ -100,7 +124,7 @@ function resetDisplay() {
 document.getElementById('buttonReset').addEventListener('click', resetDisplay());
 
 function getRandomPosition() {
-  return Math.random() * (canvas.width - 50) + 55;
+  return Math.random() * (canvas.width - 50) + 60;
 }
 
 function finalProjectile() {
@@ -155,18 +179,18 @@ function update() {
 
   let distanceCenters = calculateDistance(xCircle, 430, x + 25, y + 25);
   document.getElementById("distance").textContent = "Distance: " + distanceCenters.toFixed(2);
-  if (distanceCenters <= 51) {
+  if (distanceCenters <= 49) {
     hitTarget = true; 
     crono.stop();
     console.log("Target hitted");
     document.getElementById('displayResult').textContent = 'Result: Hit!';
-     Swal.fire({
+    Swal.fire({
       title: 'Congratulations!',
       text: `Your gaming time is: ${document.getElementById("displayTimer").textContent}, number of times Fire! pressed: ${counter}`,
       icon: 'success',
     });
     resetDisplay();
-    cancelAnimationFrame(update); // Mirar como parar la funcion
+    cancelAnimationFrame(update);
   }
 }
 
