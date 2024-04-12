@@ -63,6 +63,7 @@ document.getElementById('buttonFire').addEventListener('click', () => {
     }
     speedX = speed * Math.cos(angle);
     speedY = -speed * Math.sin(angle);
+    /*
     if (Math.abs(projectile.x - target.x) < 10 && projectile.y <= 10) {
       clearInterval(interval);
       document.getElementById('resultDisplay').textContent = 'Result: Hit!';
@@ -71,7 +72,7 @@ document.getElementById('buttonFire').addEventListener('click', () => {
       clearInterval(interval);
       document.getElementById('resultDisplay').textContent = 'Result: Miss!';
       fired = false;
-    }
+    }*/
     console.log('Projectile fired');
     counter += 1;
     if (counter == 1) {
@@ -82,10 +83,10 @@ document.getElementById('buttonFire').addEventListener('click', () => {
 });
 
 function reboundCanvas() {
-  if (x <= 0 || x >= (canvas.width - 50) ) {
+  if (x >= (canvas.width - 50) ) {
     speedX = -speedX;
   }
-  if (y <= 0 || y >= canvas.height -50) {
+  if (y >= canvas.height -50) {
     speedY = -speedY;
   }
 }
@@ -115,6 +116,7 @@ function resetDisplay() {
   xCircle = getRandomPosition();
   yCircle = canvas.height - 25;
   hitTarget = false;
+  crono.stop();
   crono.reset();
   console.log('Game reset done');
 }
@@ -137,6 +139,11 @@ function finalProjectile() {
 
 function finalTarget() {
   ctx.beginPath();
+  if (xCircle >= canvas.width - 50) {
+    xCircle = canvas.width - 70;
+  } else if (xCircle <= 80) {
+    xCircle = 100;
+  }
   ctx.arc(xCircle, yCircle, 25, 0, 2*Math.PI);
   ctx.strokeStyle = 'blue';
   ctx.lineWidth = 3;
@@ -156,11 +163,14 @@ function update() {
     speedY += gravity;
     x += speedX;
     y += speedY;
-    if(x < 0 || x > canvas.width - 50 || y < 0 || y > canvas.height - 50) {
-      fired = false;
+    if(x < 0 || x > canvas.width - 50 || y > canvas.height - 50) {
+      reboundCanvas();
+      if (y = canvas.height - 50) { 
+        fired = false;
+      }
     }
     if (y <= 0) {
-      speedY = 0;
+      speedY = -speedY;
     }
   }
 
@@ -173,6 +183,7 @@ function update() {
   finalProjectile();
   finalTarget();
 
+
   requestAnimationFrame(update);
 
   let distanceCenters = calculateDistance(xCircle, 430, x + 25, y + 25);
@@ -182,13 +193,22 @@ function update() {
     crono.stop();
     console.log("Target hitted");
     document.getElementById('displayResult').textContent = 'Result: Hit!';
-     Swal.fire({
-      title: 'Congratulations!',
-      text: `Your gaming time is: ${document.getElementById("displayTimer").textContent}, number of times Fire! pressed: ${counter}`,
+    Swal.fire({
+      title: 'Target REACHED!',
+      text: `Your gaming time is: ${document.getElementById("displayTimer").textContent}  Number of times Fire! pressed: ${counter}`,
       icon: 'success',
     });
     resetDisplay();
-    cancelAnimationFrame(update); // Mirar como parar la funcion
+    cancelAnimationFrame(update);
+  } else if (counter >= 10 && hitTarget == false) {
+    document.getElementById('displayResult').textContent = 'Result: Miss!';
+    Swal.fire({
+        title: 'Out of bounds!',
+        text: `You lost the target! ${document.getElementById("displayTimer").textContent} Times Fire! pressed: ${counter}`,
+        icon: 'error',  
+    });
+    resetDisplay();
+    cancelAnimationFrame(update);
   }
 }
 
