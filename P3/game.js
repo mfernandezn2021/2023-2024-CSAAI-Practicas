@@ -16,7 +16,7 @@ const valueSpeed = document.getElementById("sliderSpeed"); // Speed has to be ch
 
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth * 0.5;
+canvas.width = 1200;
 canvas.height = window.innerHeight * 0.5;
 
 let target =  {x: getRandomPosition(), y: 0 };
@@ -63,16 +63,7 @@ document.getElementById('buttonFire').addEventListener('click', () => {
     }
     speedX = speed * Math.cos(angle);
     speedY = -speed * Math.sin(angle);
-    /*
-    if (Math.abs(projectile.x - target.x) < 10 && projectile.y <= 10) {
-      clearInterval(interval);
-      document.getElementById('resultDisplay').textContent = 'Result: Hit!';
-      fired = false;
-    } else if (projectile.x > canvas.width || projectile.y > canvas.height) {
-      clearInterval(interval);
-      document.getElementById('resultDisplay').textContent = 'Result: Miss!';
-      fired = false;
-    }*/
+    
     console.log('Projectile fired');
     counter += 1;
     if (counter == 1) {
@@ -180,9 +171,8 @@ function update() {
   }
 
   ctx.clearRect(0, 0, canvas.width, canvas.height); // Cleaning canvas
-  finalProjectile();
-  finalTarget();
-
+  finalProjectile(); // Draw projectile
+  finalTarget(); // Draw Target
 
   requestAnimationFrame(update);
 
