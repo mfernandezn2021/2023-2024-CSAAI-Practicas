@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Memory Card Game</title>
+	<link rel="stylesheet" href="stylesPruebas2.css">
+	<script src="scriptPruebas2.js" defer></script>
+</head>
+<body>
+	<div class="game">
+		<h1>MEMORY CARD GAME</h1>
+		<div class="controles">
+			<label style="font-size: 22px; font-weight: bold;" for="dimensiones">Display size:</label>
+			<select id="dimensiones" name="dimensiones">
+					<option value="2">2 X 2</option>
+					<option value="4">4 X 4</option>
+					<option value="6">6 X 6</option>
+			</select> <br>
+			<button class="comenzar">Start</button>
+			<button  class="reinicio">Restart</button>
+			<div class="display">
+					<div class="movements">0 Movimientos</div>
+					<div class="timer">Tiempo: 0 s</div>
+			</div>
+		</div>
+		<div class="grid-container">
+			<div class="tablero" grid-dimension="">
+					<div class="card">
+							<div class="card-front"></div>
+							<div class="card-back"></div>
+					</div>
+			</div>
+			<div class="win">¡Has Ganado!</div>
+		</div>
+		<button id="recarga" onclick="window.location.reload()">RELOAD PAGE</button>
+		<a href="https://mfernandezn2021.github.io/2023-2024-CSAAI-Practicas/">
+			<button id="indexPractice">Practice Index</button>
+		</a>
+	</div>
+</body>
+</html>
