@@ -1,98 +1,184 @@
-console.log("Ejecutando JS...");
+console.log('JS running... ')
 
-const emojis = ["🍉", "🍉", "🐬", "🐬", "🍅", "🍅", "🏈", "🏈", "🍋", "🍋", "🕤", "🕤", "🌍", "🌍", "🐻", "🐻"];
+
+var selectedDimensions = document.querySelector('#dimensiones').value;
 
 const selectors = {
-  start: document.querySelector('#start'),
-  moves: document.querySelector('#moves'),
-  timer: document.querySelector('#timer') 
-}
+	gridContainer: document.querySelector('.grid-container'),
+	tablero: document.querySelector('.tablero'),
+	movimientos: document.querySelector('.movements'),
+	timer: document.querySelector('.timer'),
+	comenzar: document.querySelector('.comenzar'),
+	reinicio: document.querySelector('.reinicio'),
+	win: document.querySelector('.win'),
+	dimensiones: document.querySelector('#dimensiones'),
 
+}
+	
 const state = {
-  gameStarted: false,
-  loop: null,
-  totalFlips: 0,
-  totalTime: 0
+	gameStarted: false,
+	flippedCards: 0,
+	totalFlips: 0,
+	totalTime: 0,
+	loop: null
 }
 
-function startGame() {
-  // Start game
-  state.gameStarted = true;
+const resetGame = () => {
+	state.gameStarted = false;
+	state.flippedCards = 0;
+	state.totalFlips = 0;
+	state.totalTime = 0;
+	clearInterval(state.loop);
+	selectors.timer.textContent = "0 s";
+	selectors.movimientos.textContent = "0 Movimientos";
+	selectors.gridContainer.classList.remove('flipped')
+	selectors.comenzar.classList.remove('disabled')
 
-  selectors.start.classList.add('disabled');
-
-  // Time and moves update
-  state.loop = setInterval(() => {
-      state.totalTime++
-      selectors.moves.innerText = `${state.totalFlips} moves`
-      selectors.timer.innerText = `Time: ${state.totalTime} sec`
-  }, 1000)
+	generateGame();
+	attachEventListeners();
 }
 
-let index = 0;
-let counter = 0;
+selectors.reinicio.onclick = () =>{
+	resetGame(); // PONER UN BOTON PARA RESET CUANDO SE HA GANADO
+} 
 
-var shuffleEmojis = emojis.sort(() => (Math.random() > 0.5)? 2 : -1);
+const generateGame = () => {
+	let dimensions = selectors.dimensiones.value;
 
-for (index = 0; index < emojis.length; index++) {
-  let boxes = document.createElement('div');
-  boxes.className = 'item';
-  boxes.innerHTML = shuffleEmojis[index];
+	if (dimensions % 2 !== 0 || dimensions < 2 || dimensions > 6) {
+		throw new Error("El número de dimensiones debe ser un número par mayor o igual a 2.");
+	}
 
-  boxes.onclick = function(){
-    counter++;
-    state.totalFlips++;
-    this.classList.add('activeBox');
-    setTimeout(function(){
-      let cardFlipped = document.querySelector('#matchItem');
-      
-      if (document.querySelectorAll('.activeBox').length > 1) {
-        
-        if (document.querySelectorAll('.activeBox')[0].innerHTML == 
-        document.querySelectorAll('.activeBox')[1].innerHTML){
-          document.querySelectorAll('.activeBox')[0].classList.add('matchItem')
-          document.querySelectorAll('.activeBox')[1].classList.add('matchItem')
+	const emojis = ['🍉', '🐬', '🍅', '🏈', '🍋', '🕤', '🌍', '🐻', '🎧', '💩', '​🗿', '​🔞', '🌹', '🇪🇸', '🔝', '🇺🇸', '​💻', '​💯​']
+	
+	const picks = pickRandom(emojis, (dimensions * dimensions) / 2)
 
-          document.querySelectorAll('.activeBox')[1].classList.remove('activeBox')
-          document.querySelectorAll('.activeBox')[0].classList.remove('activeBox')
-          
-          document.querySelectorAll('.matchItem')[0].classList.add('disabled');
-          document.querySelectorAll('.matchItem')[1].classList.add('disabled');
-          
-          if (document.querySelectorAll('.matchItem').length == emojis.length){
-            clearInterval(state.loop);
-            Swal.fire({
-              title: 'SUCCESS!',
-              text: `Your gaming time is: ${state.totalTime} Movements: ${state.totalFlips}`,
-              icon: 'success',
-            });
+	const items = shuffle([...picks, ...picks])
+	
+	const cards = `
+		<div class="tablero" style="grid-template-columns: repeat(${dimensions}, auto)">
+			${items.map(item => `
+				<div class="card">
+					<div class="card-front"></div>
+					<div class="card-back">${item}</div>
+				</div>
+			`).join('')}
+		</div>
+	
+	`
+	selectors.tablero.innerHTML = cards;
+}
 
-          }
-        } else {
-          document.querySelectorAll('.activeBox')[1].classList.remove('activeBox');
-          document.querySelectorAll('.activeBox')[0].classList.remove('activeBox');
-        }
+const pickRandom = (array, items) => {
+	const clonedArray = [...array]
+	const randomPicks = [] 
 
-      }
+	for (let index = 0; index < items; index++) {
+		const randomIndex = Math.floor(Math.random() * clonedArray.length)
 
-      if (cardFlipped.classList.contains("matchItem")) {
-        cardFlipped.addEventListener("click", function() {
-          cardFlipped.classList.toggle("disabled");
-        });
-      }
-    }, 500)
-  }
-  
-  document.querySelector('.game').appendChild(boxes);
+		randomPicks.push(clonedArray[randomIndex])
+		// Erase the element from original array
+		clonedArray.splice(randomIndex, 1)
+	}
 
+	return randomPicks
+}
+
+const shuffle = array => {
+	const clonedArray = [...array]
+
+	for (let index = clonedArray.length - 1; index > 0; index--) {
+		const randomIndex = Math.floor(Math.random() * (index + 1))
+		const original = clonedArray[index]
+
+		clonedArray[index] = clonedArray[randomIndex]
+		clonedArray[randomIndex] = original
+	}
+
+	return clonedArray
+}
+
+const attachEventListeners = () => {
+	document.addEventListener('click', event => {
+		const eventTarget = event.target
+		const eventParent = eventTarget.parentElement
+
+		if (eventTarget.className.includes('card') && !eventParent.className.includes('flipped')) {
+			flipCard(eventParent);
+		
+		} else if (eventTarget.className == 'comenzar' && !eventTarget.className.includes('disabled')) {
+			startGame();
+		}else if (selectedDimensions != selectors.dimensiones.value && state.gameStarted == false){
+			selectedDimensions = selectors.dimensiones.value;
+			resetGame();
+		}
+	})
+}
+
+generateGame()
+
+attachEventListeners()
+
+const startGame = () => {
+	state.gameStarted = true
+	selectors.comenzar.classList.add('disabled')
+
+	state.loop = setInterval(() => {
+		state.totalTime++
+
+		selectors.movimientos.innerText = `${state.totalFlips} Movimientos`
+		selectors.timer.innerText = `Tiempo: ${state.totalTime} s`
+	}, 1000)
+}
+
+const flipCard = card => {
+	state.flippedCards++
+
+	state.totalFlips++
+
+	if (!state.gameStarted) {
+		startGame()
+	}
+	if (state.flippedCards <= 2) {
+		card.classList.add('flipped')
+	}
+
+	if (state.flippedCards === 2) {
+		const flippedCards = document.querySelectorAll('.flipped:not(.matched)')
+
+		if (flippedCards[0].innerText === flippedCards[1].innerText) {
+			flippedCards[0].classList.add('matched')
+			flippedCards[1].classList.add('matched')
+		}
+		setTimeout(() => {
+			flipBackCards()
+		}, 1000)
+	}
+
+	if (!document.querySelectorAll('.card:not(.flipped)').length) {
+		setTimeout(() => {
+			selectors.gridContainer.classList.add('flipped')
+	
+			selectors.win.innerHTML = `
+				<span class="win-text">
+					¡Has ganado!<br />
+					en <span class="highlight">${state.totalFlips}</span> Movimientos<br />
+					en un tiempo de juego de <span class="highlight">${state.totalTime}</span> segundos
+				</span>
+			`
+			// Game finished
+			clearInterval(state.loop)
+		}, 1000)
+	}
 }
 
 
-
-function resetGame() {
-  window.location.reload(); // MIRAR ESTO
-  state.gameStarted = false;
-  index = 0;
-  counter = 0;
+const flipBackCards = () => {
+	document.querySelectorAll('.card:not(.matched)').forEach(card => {
+		card.classList.remove('flipped')
+	})
+	
+	state.flippedCards = 0
 }
+
 
