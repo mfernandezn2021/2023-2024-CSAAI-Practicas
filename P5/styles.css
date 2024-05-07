@@ -1,5 +1,12 @@
+*{
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
 canvas {
   border: 1px solid black;
+
 }
 
 .controls {
@@ -11,7 +18,7 @@ canvas {
 button {
   background: #282A3A;
   color: #FFF;
-  border-radius: 2px;
+  border-radius: 15px;
   padding: 10px 20px;
   border: 0;
   cursor: pointer;
