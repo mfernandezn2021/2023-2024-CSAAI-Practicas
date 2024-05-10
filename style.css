@@ -1,3 +1,32 @@
+h3 {
+  margin: 5px;
+  margin-left: 10px;
+
+}
+
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
 li {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #bebcbc;
+  border-radius: 5px;
+  width: fit-content;
+  max-width: 85%;
   text-align: justify;
 }
+
+li:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
