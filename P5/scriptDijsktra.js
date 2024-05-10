@@ -1,8 +1,12 @@
+
+const tiempoTotal = document.getElementById("tiempo");
+
+
 function dijkstraConRetardos(red, origen, destino) {
   const distancia = {}; // Almacena la distancia mínima desde el nodo origen hasta cada nodo
   const anterior = {}; // Almacena el nodo anterior en la ruta mínima desde el nodo origen hasta cada nodo
   const nodosNoVisitados = new Set(); // Conjunto de nodos no visitados
-
+  
   // Inicializar las distancias a cada nodo como infinito y el nodo anterior como null
   for (const nodo of red) {
     distancia[nodo.id] = Infinity;
@@ -34,6 +38,8 @@ function dijkstraConRetardos(red, origen, destino) {
       if (distanciaTotal < distancia[nodo.id]) {
         distancia[nodo.id] = distanciaTotal;
         anterior[nodo.id] = nodoActual;
+        console.log(distanciaTotal);
+        tiempoTotal.innerHTML = "Tiempo total: " + Math.round(distanciaTotal) + " sec.";
       }
     }
   }

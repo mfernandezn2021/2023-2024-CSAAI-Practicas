@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="matilde.ico" type="image/x-icon">
     <title>Simulación de envío de paquetes de datos</title>
-
     <link rel="stylesheet" href="styles.css">
-
     <script src="script.js" defer></script>
     <script src="scriptDijsktra.js" defer></script>
-
 </head>
 <body>
+    <h1>Simulador de red</h1>
     <div class="controls">
         <button id="btnCNet">Generar Red</button>
         <button id="btnMinPath">Calcular ruta</button>
     </div>
     <canvas id="networkCanvas" width="800" height="400"></canvas>
+    <div id="stats">
+        <p id="num">Número de nodos: 0 </p>
+        <p id="tiempo">Tiempo total: 0 seg</p>
+        <p id="estado">Sin red</p>
+    </div>
 </body>
 </html>

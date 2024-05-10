@@ -5,8 +5,21 @@
 }
 
 canvas {
-  border: 1px solid black;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 80%;
+  height: auto;
+}
 
+button {
+  background: #282a3a;
+  color: #FFF;
+  border-radius: 15px;
+  padding: 10px 20px;
+  border: 0;
+  cursor: pointer;
+  font-family: Fredoka;
+  font-size: 18pt;
 }
 
 .controls {
@@ -15,13 +28,42 @@ canvas {
   margin-bottom: 20px;
 }
 
-button {
-  background: #282A3A;
-  color: #FFF;
-  border-radius: 15px;
-  padding: 10px 20px;
-  border: 0;
-  cursor: pointer;
+#stats{
+  color: #282A3A;
+  font-size: 18px;
   font-family: Fredoka;
-  font-size: 18pt;
+}
+
+
+@media screen and (max-width: 600px) {
+  
+  canvas{
+    width: 80%;
+    height: auto;
+  }
+
+  body{
+    margin: 40px;
+  }
+
+  h1{
+      font-size: 28px;
+      margin: 0;
+      margin-bottom: 10px;
+  }
+  
+  button{
+    font-size: 10pt;
+  }
+
+  .controls{
+    display: flex;
+    gap: 20px;
+  }
+
+  #stats{
+    color: #282A3A;
+    font-size: 14px;
+    font-family: Fredoka;
+  }
 }
