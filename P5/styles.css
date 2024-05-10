@@ -35,6 +35,15 @@ button {
   font-family: Fredoka;
 }
 
+#indexPractice {
+  background-color: #ffffff;
+  color: #252525;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 600px) {
   
@@ -66,5 +75,15 @@ button {
     color: #282A3A;
     font-size: 14px;
     font-family: Fredoka;
+  }
+
+  #indexPractice {
+    background-color: #ffffff;
+    color: #252525;
+    padding: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
   }
 }
